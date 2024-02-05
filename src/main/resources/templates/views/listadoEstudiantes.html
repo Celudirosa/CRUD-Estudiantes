@@ -16,10 +16,10 @@
                 <th>Segundo Apellido</th>
             </thead>
             <tbody>
-                <tr th:each=" empleado : ${empleados}">
-                    <td th:text="${empleado.nombre}"></td>
-                    <td th:text="${empleado.primerApellido}"></td>
-                    <td th:text="${empleado.segundoApellido}"></td>
+                <tr th:each=" estudiante : ${estudiantes}">
+                    <td th:text="${estudiante.nombre}"></td>
+                    <td th:text="${estudiante.primerApellido}"></td>
+                    <td th:text="${estudiante.segundoApellido}"></td>
                 </tr>
             </tbody>
         </table>
