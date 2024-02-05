@@ -47,13 +47,23 @@
                         <input type="radio" name="genero" id="hombre" value="HOMBRE" th:field="*{genero}">
                         <label for="mujer">Mujer </label>
                         <input type="radio" name="genero" id="mujer" value="MUJER" th:field="*{genero}">
-                        <label for="nobinario">Mujer </label>
+                        <label for="nobinario">No binario </label>
                         <input type="radio" name="genero" id="nobinario" value="NOBINARIO" th:field="*{genero}">
                         <label for="otro">Otro </label>
                         <input type="radio" name="genero" id="otro" value="OTRO" th:field="*{genero}">
                 </fieldset>
 
-
+                <!-- genero radio -->
+                <div>
+                    <label for="curso">Curso: </label>
+                    <select name="curso" id="curso">
+                        <option></option>
+                        <option th:each="curso : ${cursos}"
+                            th:value="${curso.id}"
+                            th:text="${curso.descripcion}">
+                        </option>
+                    </select>
+                </div>
 
             </form>
         </fieldset>
