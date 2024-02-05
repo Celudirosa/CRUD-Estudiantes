@@ -6,20 +6,34 @@
     <title>Estudiantes</title>
 </head>
     <body>
+
         <h1>CRUD de Estudiantes</h1>
         <h3>Listado de Estudiantes</h3>
+
+        <div>
+            <a th:href="@{/frmAltaModificacion}">Formulario de Alta</a>
+        </div>
 
         <table>
             <thead>
                 <th>Nombre</th>
                 <th>Primer Apellido</th>
                 <th>Segundo Apellido</th>
+                <th>Género</th>
+                <th>Fecha de Alta</th>
             </thead>
             <tbody>
                 <tr th:each=" estudiante : ${estudiantes}">
                     <td th:text="${estudiante.nombre}"></td>
                     <td th:text="${estudiante.primerApellido}"></td>
                     <td th:text="${estudiante.segundoApellido}"></td>
+                    <td th:text="${estudiante.genero}"></td>
+                    <td th:text="${estudiante.fechaAlta}"></td>
+                    <td>
+                        <a th:href="@{/detalles/}+${estudiante.id}">Detalles</a>
+                        <a th:href="@{/actualizar/}+${estudiante.id}">Actualizar</a>
+                        <a th:href="@{/eliminar/}+${estudiante.id}">Eliminar</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
