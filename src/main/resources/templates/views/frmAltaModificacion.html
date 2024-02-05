@@ -65,6 +65,22 @@
                     </select>
                 </div>
 
+                <div>
+                    <label for="telefonos">Teléfonos: </label>
+                    <input type="text" name="numerosTel" id="telefonos"
+                        placeholder="Separados por ;"
+                        th:value="${numerosTelefono}">
+                </div>
+
+                <div>
+                    <label for="correos">Correos: </label>
+                    <input type="text" name="direccionesCorreo" id="correos"
+                        placeholder="Separados por ;"
+                        th:value="${direccionesCorreos}">
+                </div>
+
+                <input type="submit" value="Alta/Modificacion">
+                
             </form>
         </fieldset>
     </body>
