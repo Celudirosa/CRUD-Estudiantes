@@ -70,6 +70,7 @@ public class MainController {
         @RequestParam(name = "numerosTel", required = false) String telefonosRecibidos,
         @RequestParam(name = "direccionesCorreo", required = false) String correosRecibidos) {
 
+        
         return "redirect:/all";
     }
 
