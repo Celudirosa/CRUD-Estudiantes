@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Detalles</title>
+    </head>
+    <body>
+        <h1 th:text="'Detalles del estudiante: ' + ${estudiante.nombre}"></h1>
+    </body>
+
+    <h3 th:text="${estudiante.foto}"></h3>
+
+    <p>Total de asignaturas matriculadas:</p>
+    <p th:text="${estudiante.totalAsignaturas}"></p>
+
+</html>
