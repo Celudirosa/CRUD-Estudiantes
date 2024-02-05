@@ -40,7 +40,7 @@ public class Estudiante implements Serializable {
     private String primerApellido;
     private String segundoApellido;
 
-    @Enumerated(EnumType.STRING) // con esto ya te saca el nombre
+    @Enumerated(EnumType.STRING)
     private Genero genero;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
