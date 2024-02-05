@@ -29,22 +29,22 @@ public class CrudEstudiantesApplication implements CommandLineRunner {
 		
 		// creamos los cursos
 		Curso curso1 = Curso.builder()
-			.descripcion("Curso de Java")
+			.descripcion("JAVA")
 			.horario(Horario.DIURNO)
 			.build();
 
 		Curso curso2 = Curso.builder()
-			.descripcion("Curso de Francés")
+			.descripcion("FRANCÉS")
 			.horario(Horario.DIURNO)
 			.build();
 
 		Curso curso3 = Curso.builder()
-			.descripcion("Curso de Java")
+			.descripcion("JAVA")
 			.horario(Horario.NOCTURNO)
 			.build();
 
 		Curso curso4 = Curso.builder()
-			.descripcion("Curso de Francés")
+			.descripcion("FRANCÉS")
 			.horario(Horario.NOCTURNO)
 			.build();
 
