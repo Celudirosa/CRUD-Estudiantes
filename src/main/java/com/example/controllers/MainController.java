@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.entities.Estudiante;
+import com.example.services.CursoService;
 import com.example.services.EstudianteService;
 
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class MainController {
 
     private final EstudianteService estudianteService;
+    private final CursoService cursoService;
 
     private final Logger LOG = Logger.getLogger("MainController");
 
@@ -39,6 +42,21 @@ public class MainController {
             estudianteService.dameUnEstudiante(idEstudiante));
 
         return "views/estudianteDetalles";
+    }
+
+    // formulario de alta
+    @GetMapping("/frmAltaModificacion")
+    public String formularioAltaModificacion(Model model) {
+
+        Estudiante estudiante = new Estudiante();
+        
+        model.addAttribute("estudiante", estudiante);
+
+        // tambien los departamentos
+        model.addAttribute("cursos", 
+            cursoService.dameCursos());
+        
+        return "views/frmAltaModificacion";
     }
 
 }
