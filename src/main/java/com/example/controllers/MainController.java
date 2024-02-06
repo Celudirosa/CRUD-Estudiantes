@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.entities.Correo;
+import com.example.entities.Curso;
 import com.example.entities.Estudiante;
 import com.example.entities.Telefono;
 import com.example.services.CursoService;
@@ -125,6 +127,37 @@ public class MainController {
         estudianteService.eliminarEstudiante(idEstudiante);
 
         return "redirect:/all";
+    }
+
+    // actualizar el estudiante
+    @GetMapping("/actualizar/{id}")
+    @Transactional
+    public String actualizarEstudiante(@PathVariable(name = "id", required = true) 
+        int idEstudiante, Model model) {
+
+        Estudiante estudiante = estudianteService.dameUnEstudiante(idEstudiante);
+        model.addAttribute("estudiante", estudiante);
+
+        List<Curso> cursos = cursoService.dameCursos();
+        model.addAttribute("cursos", cursos);
+
+        if (estudiante.getTelefonos() != null) {
+            String numerosTelefono = estudiante.getTelefonos().stream()
+                .map(Telefono::getTelefono)
+                .collect(Collectors.joining(";"));
+
+            model.addAttribute("numerosTelefono", numerosTelefono);
+        }
+
+        if (estudiante.getCorreos() != null) {
+            String direccionesCorreos = estudiante.getCorreos().stream()
+                .map(Correo::getCorreo)
+                .collect(Collectors.joining(";"));
+
+            model.addAttribute("direccionesCorreos", direccionesCorreos);
+        }
+
+        return "views/frmAltaModificacion";
     }
 
 }
