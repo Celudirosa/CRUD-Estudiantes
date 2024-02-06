@@ -160,4 +160,14 @@ public class MainController {
         return "views/frmAltaModificacion";
     }
 
+        // listado del turno DIURNO
+        @GetMapping("/all-diurno/{idCurso}")
+        public String dameEstudiantesDiurno(@PathVariable int idCurso,Model model) {
+            
+            List<Estudiante> estudiantesDiurno = cursoService.dameEstudiantesPorCurso(idCurso);
+            model.addAttribute("estudiantes", estudiantesDiurno);
+            return "views/listadoEstudiantes";
+
+        }
+
 }
