@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+    <body>
+
+        <h1>Formulario Alta/Modificacion de Estudiante</h1>
+        
+        <fieldset>
+            <legend>Formulario</legend>
+            <form th:action="@{/persistir}" th:object="${estudiante}" method="post">
+
+                <input type="hidden" th:field="*{id}">
+
+                <div>
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" id="nombre" th:field="*{nombre}">
+                </div>
+
+                <div>
+                    <label for="primerApellido">Primer Apellido: </label>
+                    <input type="text" id="primerApellido" th:field="*{primerApellido}">
+                </div>
+
+                <div>
+                    <label for="segundoApellido">Segundo Apellido: </label>
+                    <input type="text" id="segundoApellido" th:field="*{segundoApellido}">
+                </div>
+
+                <div>
+                    <label for="fechaAlta">Fecha de Alta: </label>
+                    <input type="date" id="fechaAlta" th:field="*{fechaAlta}">
+                </div>
+
+                <div>
+                    <label for="totalAsignaturas">Total de Asignaturas matriculadas: </label>
+                    <input type="text" id="totalAsignaturas" th:field="*{totalAsignaturas}">
+                </div>
+
+                <!-- genero radio -->
+                <fieldset>
+                    <legend>Género: </legend>
+                        <label for="hombre">Hombre </label>
+                        <input type="radio" name="genero" id="hombre" value="HOMBRE" th:field="*{genero}">
+                        <label for="mujer">Mujer </label>
+                        <input type="radio" name="genero" id="mujer" value="MUJER" th:field="*{genero}">
+                        <label for="nobinario">No binario </label>
+                        <input type="radio" name="genero" id="nobinario" value="NOBINARIO" th:field="*{genero}">
+                        <label for="otro">Otro </label>
+                        <input type="radio" name="genero" id="otro" value="OTRO" th:field="*{genero}">
+                </fieldset>
+
+                <!-- genero radio -->
+                <div>
+                    <label for="curso">Curso: </label>
+                    <select name="curso" id="curso">
+                        <option></option>
+                        <option th:each="curso : ${cursos}"
+                            th:value="${curso.id}"
+                            th:text="${curso.descripcion}">
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="telefonos">Teléfonos: </label>
+                    <input type="text" name="numerosTel" id="telefonos"
+                        placeholder="Separados por ;"
+                        th:value="${numerosTelefono}">
+                </div>
+
+                <div>
+                    <label for="correos">Correos: </label>
+                    <input type="text" name="direccionesCorreo" id="correos"
+                        placeholder="Separados por ;"
+                        th:value="${direccionesCorreos}">
+                </div>
+
+                <input type="submit" value="Alta/Modificacion">
+                
+            </form>
+        </fieldset>
+    </body>
+</html>
