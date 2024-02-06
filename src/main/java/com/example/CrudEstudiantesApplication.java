@@ -178,21 +178,51 @@ public class CrudEstudiantesApplication implements CommandLineRunner {
 		telefonoService.persistirTelefono(2, telefono1Estudiante2);
 
 		// creamos los correos
-		Correo correo1Empleado1 = Correo.builder()
+		Correo correo1Estudiante1 = Correo.builder()
 			.correo("celia@mola.com")
 			.build();
 
-		Correo correo2Empleado1 = Correo.builder()
+		Correo correo2Estudiante1 = Correo.builder()
 			.correo("celudirosa@mola.com")
 			.build();
 
-		Correo correo1Empleado2 = Correo.builder()
+		Correo correo1Estudiante2 = Correo.builder()
 			.correo("isabel@mola.com")
 			.build();
 
-		correoService.persistirCorreo(1, correo1Empleado1);
-		correoService.persistirCorreo(1, correo2Empleado1);
-		correoService.persistirCorreo(2, correo1Empleado2);
+		Correo correo1Estudiante3 = Correo.builder()
+			.correo("amparo@mola.com")
+			.build();
+
+		Correo correo1Estudiante4 = Correo.builder()
+			.correo("martina@mola.com")
+			.build();
+
+		Correo correo1Estudiante5 = Correo.builder()
+			.correo("ana@mola.com")
+			.build();
+
+		Correo correo1Estudiante6 = Correo.builder()
+			.correo("laura@mola.com")
+			.build();
+
+		Correo correo1Estudiante7 = Correo.builder()
+			.correo("juan@mola.com")
+			.build();
+
+		Correo correo1Estudiante8 = Correo.builder()
+			.correo("adrian@mola.com")
+			.build();
+
+		correoService.persistirCorreo(1, correo1Estudiante1);
+		correoService.persistirCorreo(1, correo2Estudiante1);
+		correoService.persistirCorreo(2, correo1Estudiante2);
+		correoService.persistirCorreo(3, correo1Estudiante2);
+		correoService.persistirCorreo(4, correo1Estudiante2);
+		correoService.persistirCorreo(5, correo1Estudiante2);
+		correoService.persistirCorreo(6, correo1Estudiante2);
+		correoService.persistirCorreo(7, correo1Estudiante2);
+		correoService.persistirCorreo(8, correo1Estudiante2);
 
 
 	}
