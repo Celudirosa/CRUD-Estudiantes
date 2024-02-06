@@ -116,4 +116,15 @@ public class MainController {
         return "redirect:/all";
     }
 
+    // eliminar el estudiante
+    @GetMapping("/eliminar/{id}")
+    @Transactional
+    public String eliminarEstudiante(@PathVariable(name = "id", required = true)
+        int idEstudiante) {
+        
+        estudianteService.eliminarEstudiante(idEstudiante);
+
+        return "redirect:/all";
+    }
+
 }
