@@ -2,12 +2,14 @@ package com.example.services;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.example.dao.CursoDao;
 import com.example.entities.Curso;
 import com.example.entities.Estudiante;
+import com.example.entities.Horario;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,16 +35,12 @@ public class CursoServiceImpl implements CursoService {
     }
 
     @Override
-    public List<Estudiante> dameEstudiantesPorCurso(int idCurso) {
-        Curso cursoDiurno = cursoDao.findById(idCurso).get();
-
-        if (cursoDao != null) {
-            Curso curso = cursoDiurno;
-            return curso.getEstudiantes();
-        } else {
-            // Manejar el caso en el que no se encuentre el curso
-            return Collections.emptyList();
-        }
+    public List<Estudiante> dameEstudiantesPorHorario(Horario horario) {
+        return cursoDao.findByHorario(horario).stream()
+            .flatMap(curso -> curso.getEstudiantes().stream())
+            .collect(Collectors.toList());
     }
+
+
 
 }
