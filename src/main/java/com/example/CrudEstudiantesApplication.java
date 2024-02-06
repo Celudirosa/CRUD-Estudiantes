@@ -85,8 +85,77 @@ public class CrudEstudiantesApplication implements CommandLineRunner {
 			.curso(cursoService.dameUnCurso(1))
 			.build();
 
+		Estudiante est3 = Estudiante.builder()
+			.nombre("Amparo")
+			.primerApellido("Martinez")
+			.segundoApellido("Salazar")
+			.genero(Genero.MUJER)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Amparo")
+			.curso(cursoService.dameUnCurso(2))
+			.build();
+
+		Estudiante est4 = Estudiante.builder()
+			.nombre("Martina")
+			.primerApellido("Scanzzani")
+			.genero(Genero.MUJER)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Martina")
+			.curso(cursoService.dameUnCurso(2))
+			.build();
+			
+		Estudiante est5 = Estudiante.builder()
+			.nombre("Ana")
+			.primerApellido("Gomez")
+			.segundoApellido("Lavado")
+			.genero(Genero.MUJER)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Ana")
+			.curso(cursoService.dameUnCurso(3))
+			.build();
+
+		Estudiante est6 = Estudiante.builder()
+			.nombre("Laura")
+			.primerApellido("Garrido")
+			.genero(Genero.MUJER)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Laura")
+			.curso(cursoService.dameUnCurso(3))
+			.build();
+
+		Estudiante est7 = Estudiante.builder()
+			.nombre("Juan")
+			.primerApellido("Gomez")
+			.segundoApellido("Lavado")
+			.genero(Genero.HOMBRE)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Juan")
+			.curso(cursoService.dameUnCurso(4))
+			.build();
+
+		Estudiante est8 = Estudiante.builder()
+			.nombre("Adrian")
+			.primerApellido("Garrido")
+			.genero(Genero.HOMBRE)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Adrian")
+			.curso(cursoService.dameUnCurso(4))
+			.build();
+
 		estudianteService.persistirEstudiante(est1);
 		estudianteService.persistirEstudiante(est2);
+		estudianteService.persistirEstudiante(est3);
+		estudianteService.persistirEstudiante(est4);
+		estudianteService.persistirEstudiante(est5);
+		estudianteService.persistirEstudiante(est6);
+		estudianteService.persistirEstudiante(est7);
+		estudianteService.persistirEstudiante(est8);
 
 		// creamos los telefonos
 		Telefono telefono1Estudiante1 = Telefono.builder()
