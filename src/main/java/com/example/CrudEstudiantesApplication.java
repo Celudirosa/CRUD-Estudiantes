@@ -217,12 +217,12 @@ public class CrudEstudiantesApplication implements CommandLineRunner {
 		correoService.persistirCorreo(1, correo1Estudiante1);
 		correoService.persistirCorreo(1, correo2Estudiante1);
 		correoService.persistirCorreo(2, correo1Estudiante2);
-		correoService.persistirCorreo(3, correo1Estudiante2);
-		correoService.persistirCorreo(4, correo1Estudiante2);
-		correoService.persistirCorreo(5, correo1Estudiante2);
-		correoService.persistirCorreo(6, correo1Estudiante2);
-		correoService.persistirCorreo(7, correo1Estudiante2);
-		correoService.persistirCorreo(8, correo1Estudiante2);
+		correoService.persistirCorreo(3, correo1Estudiante3);
+		correoService.persistirCorreo(4, correo1Estudiante4);
+		correoService.persistirCorreo(5, correo1Estudiante5);
+		correoService.persistirCorreo(6, correo1Estudiante6);
+		correoService.persistirCorreo(7, correo1Estudiante7);
+		correoService.persistirCorreo(8, correo1Estudiante8);
 
 
 	}
