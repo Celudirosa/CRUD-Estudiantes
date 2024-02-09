@@ -1,12 +1,10 @@
 package com.example.services;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.example.dao.EstudianteDao;
-import com.example.entities.Curso;
 import com.example.entities.Estudiante;
 
 import lombok.RequiredArgsConstructor;
