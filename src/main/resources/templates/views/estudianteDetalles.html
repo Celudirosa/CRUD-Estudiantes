@@ -10,6 +10,8 @@
     </body>
 
     <h3 th:text="${estudiante.foto}"></h3>
+    <img th:src="@{/images/}+${estudiante.foto}" 
+        alt="'Imagen del estudiante ' + ${estudiante.nombre}">
 
     <p>Total de asignaturas matriculadas:</p>
     <p th:text="${estudiante.totalAsignaturas}"></p>

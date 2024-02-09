@@ -1,5 +1,8 @@
 package com.example.controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.entities.Correo;
 import com.example.entities.Curso;
@@ -78,7 +82,25 @@ public class MainController {
     public String persistirEstudiante (
         @ModelAttribute(name = "estudiante") Estudiante estudiante,
         @RequestParam(name = "numerosTel", required = false) String telefonosRecibidos,
-        @RequestParam(name = "direccionesCorreo", required = false) String correosRecibidos) {
+        @RequestParam(name = "direccionesCorreo", required = false) String correosRecibidos,
+        @RequestParam(name = "file", required = false) MultipartFile imagen) {
+
+        if (!imagen.isEmpty()) {
+            Path imageFolder = Path.of("src/main/resources/static/images");
+
+            Path rutaAbsoluta = imageFolder.toAbsolutePath();
+
+            Path rutaCompleta = Path.of(rutaAbsoluta + "/" + imagen.getOriginalFilename());
+
+            try {
+                byte[] byteImage = imagen.getBytes();
+                Files.write(rutaCompleta, byteImage);
+
+                estudiante.setFoto(imagen.getOriginalFilename());
+
+            } catch (IOException e) {
+            }
+        }
 
         // procesar los telefonos
         if (telefonosRecibidos != null) {
