@@ -60,7 +60,8 @@
                         <option></option>
                         <option th:each="curso : ${cursos}"
                             th:value="${curso.id}"
-                            th:text="${curso.descripcion}">
+                            th:text="${curso.descripcion}"
+                            th:selected="${estudiante.id != 0 and estudiante.curso.id == curso.id}">
                         </option>
                     </select>
                 </div>
