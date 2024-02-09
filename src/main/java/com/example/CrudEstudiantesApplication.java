@@ -85,8 +85,77 @@ public class CrudEstudiantesApplication implements CommandLineRunner {
 			.curso(cursoService.dameUnCurso(1))
 			.build();
 
+		Estudiante est3 = Estudiante.builder()
+			.nombre("Amparo")
+			.primerApellido("Martinez")
+			.segundoApellido("Salazar")
+			.genero(Genero.MUJER)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Amparo")
+			.curso(cursoService.dameUnCurso(2))
+			.build();
+
+		Estudiante est4 = Estudiante.builder()
+			.nombre("Martina")
+			.primerApellido("Scanzzani")
+			.genero(Genero.MUJER)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Martina")
+			.curso(cursoService.dameUnCurso(2))
+			.build();
+			
+		Estudiante est5 = Estudiante.builder()
+			.nombre("Ana")
+			.primerApellido("Gomez")
+			.segundoApellido("Lavado")
+			.genero(Genero.MUJER)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Ana")
+			.curso(cursoService.dameUnCurso(3))
+			.build();
+
+		Estudiante est6 = Estudiante.builder()
+			.nombre("Laura")
+			.primerApellido("Garrido")
+			.genero(Genero.MUJER)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Laura")
+			.curso(cursoService.dameUnCurso(3))
+			.build();
+
+		Estudiante est7 = Estudiante.builder()
+			.nombre("Juan")
+			.primerApellido("Gomez")
+			.segundoApellido("Lavado")
+			.genero(Genero.HOMBRE)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Juan")
+			.curso(cursoService.dameUnCurso(4))
+			.build();
+
+		Estudiante est8 = Estudiante.builder()
+			.nombre("Adrian")
+			.primerApellido("Garrido")
+			.genero(Genero.HOMBRE)
+			.fechaAlta(LocalDate.of(2000, Month.DECEMBER, 23))
+			.totalAsignaturas(8)
+			.foto("Foto de Adrian")
+			.curso(cursoService.dameUnCurso(4))
+			.build();
+
 		estudianteService.persistirEstudiante(est1);
 		estudianteService.persistirEstudiante(est2);
+		estudianteService.persistirEstudiante(est3);
+		estudianteService.persistirEstudiante(est4);
+		estudianteService.persistirEstudiante(est5);
+		estudianteService.persistirEstudiante(est6);
+		estudianteService.persistirEstudiante(est7);
+		estudianteService.persistirEstudiante(est8);
 
 		// creamos los telefonos
 		Telefono telefono1Estudiante1 = Telefono.builder()
@@ -109,21 +178,51 @@ public class CrudEstudiantesApplication implements CommandLineRunner {
 		telefonoService.persistirTelefono(2, telefono1Estudiante2);
 
 		// creamos los correos
-		Correo correo1Empleado1 = Correo.builder()
+		Correo correo1Estudiante1 = Correo.builder()
 			.correo("celia@mola.com")
 			.build();
 
-		Correo correo2Empleado1 = Correo.builder()
+		Correo correo2Estudiante1 = Correo.builder()
 			.correo("celudirosa@mola.com")
 			.build();
 
-		Correo correo1Empleado2 = Correo.builder()
+		Correo correo1Estudiante2 = Correo.builder()
 			.correo("isabel@mola.com")
 			.build();
 
-		correoService.persistirCorreo(1, correo1Empleado1);
-		correoService.persistirCorreo(1, correo2Empleado1);
-		correoService.persistirCorreo(2, correo1Empleado2);
+		Correo correo1Estudiante3 = Correo.builder()
+			.correo("amparo@mola.com")
+			.build();
+
+		Correo correo1Estudiante4 = Correo.builder()
+			.correo("martina@mola.com")
+			.build();
+
+		Correo correo1Estudiante5 = Correo.builder()
+			.correo("ana@mola.com")
+			.build();
+
+		Correo correo1Estudiante6 = Correo.builder()
+			.correo("laura@mola.com")
+			.build();
+
+		Correo correo1Estudiante7 = Correo.builder()
+			.correo("juan@mola.com")
+			.build();
+
+		Correo correo1Estudiante8 = Correo.builder()
+			.correo("adrian@mola.com")
+			.build();
+
+		correoService.persistirCorreo(1, correo1Estudiante1);
+		correoService.persistirCorreo(1, correo2Estudiante1);
+		correoService.persistirCorreo(2, correo1Estudiante2);
+		correoService.persistirCorreo(3, correo1Estudiante3);
+		correoService.persistirCorreo(4, correo1Estudiante4);
+		correoService.persistirCorreo(5, correo1Estudiante5);
+		correoService.persistirCorreo(6, correo1Estudiante6);
+		correoService.persistirCorreo(7, correo1Estudiante7);
+		correoService.persistirCorreo(8, correo1Estudiante8);
 
 
 	}
