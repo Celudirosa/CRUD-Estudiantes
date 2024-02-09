@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Estudiantes Agrupados por Curso</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Estudiantes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="entry : ${estudiantesAgrupados}">
+                <td th:text="${entry.key.descripcion}"></td> 
+                <td>
+                    <ul th:if="${entry.value != null and entry.value.size() > 0}">
+                        <li th:each="estudiante : ${entry.value}">
+                            <span th:text="${estudiante.nombre}"></span> 
+                            <span th:text="${estudiante.primerApellido}"></span> 
+                            <span th:text="${estudiante.segundoApellido}"></span> 
+                        </li>       
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
