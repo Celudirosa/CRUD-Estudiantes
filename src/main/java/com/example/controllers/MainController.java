@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
@@ -173,13 +174,13 @@ public class MainController {
     }
 
     // listado de alumnos por curso
+    @GetMapping("/estudiantes/agrupados")
     public String obtenerEstudiantesAgrupadosPorCurso(Model model) {
-        Map<Curso, List<Estudiante>> estudiantesAgrupados = estudianteService.obtenerEstudiantesAgrupadosPorCurso();
-        model.addAttribute("cursos", estudiantesAgrupados.keySet());
+        Map<Curso, List<Estudiante>> estudiantesAgrupados = estudianteService.dameTodosLosEstudiantes().stream()
+            .collect(Collectors.groupingBy(Estudiante::getCurso));
         model.addAttribute("estudiantesAgrupados", estudiantesAgrupados);
 
-        return "vistaEstudiantesAgrupadosPorCurso";
+        return "views/listaEstudiantesAgrupados";
     }
-
 
 }

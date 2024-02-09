@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Estudiantes Agrupados por Curso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
     <h1>Estudiantes Agrupados por Curso</h1>
 
-    <div th:each="curso : ${cursos}">
-        <h2 th:text="${curso.descripcion}"></h2>
-        <ul>
-            <li th:each="estudiante : ${estudiantesAgrupados[curso]}">
-                <span th:text="${estudiante.nombre}"></span>
-            </li>
-        </ul>
-    </div>
+    <table>
+        <thead>
+
+        </tbody>
+    </table>
 </body>
 </html>

@@ -42,8 +42,4 @@ public class EstudianteServiceImpl implements EstudianteService {
         estudianteDao.save(estudiante);
     }
 
-    @Override
-    public Map<Curso, List<Estudiante>> obtenerEstudiantesAgrupadosPorCurso() {
-        return estudianteDao.obtenerEstudiantesAgrupadosPorCurso();
-    }
 }
