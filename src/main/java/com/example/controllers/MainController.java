@@ -3,6 +3,7 @@ package com.example.controllers;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -161,14 +162,24 @@ public class MainController {
         return "views/frmAltaModificacion";
     }
 
-        // listado del turno DIURNO
-        @GetMapping("/all-diurno/{idCurso}")
-        public String dameEstudiantesDiurno(Model model) {
+    // listado del turno DIURNO
+    @GetMapping("/all-diurno/{idCurso}")
+    public String dameEstudiantesDiurno(Model model) {
             
-            List<Estudiante> estudiantesDiurno = cursoService.dameEstudiantesPorHorario(Horario.DIURNO);
-            model.addAttribute("estudiantes", estudiantesDiurno);
-            return "views/listadoEstudiantes";
+        List<Estudiante> estudiantesDiurno = cursoService.dameEstudiantesPorHorario(Horario.DIURNO);
+        model.addAttribute("estudiantes", estudiantesDiurno);
+        return "views/listadoEstudiantes";
 
-        }
+    }
+
+    // listado de alumnos por curso
+    public String obtenerEstudiantesAgrupadosPorCurso(Model model) {
+        Map<Curso, List<Estudiante>> estudiantesAgrupados = estudianteService.obtenerEstudiantesAgrupadosPorCurso();
+        model.addAttribute("cursos", estudiantesAgrupados.keySet());
+        model.addAttribute("estudiantesAgrupados", estudiantesAgrupados);
+
+        return "vistaEstudiantesAgrupadosPorCurso";
+    }
+
 
 }

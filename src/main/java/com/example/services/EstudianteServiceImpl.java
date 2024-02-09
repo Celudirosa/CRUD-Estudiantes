@@ -1,10 +1,12 @@
 package com.example.services;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.example.dao.EstudianteDao;
+import com.example.entities.Curso;
 import com.example.entities.Estudiante;
 
 import lombok.RequiredArgsConstructor;
@@ -40,4 +42,8 @@ public class EstudianteServiceImpl implements EstudianteService {
         estudianteDao.save(estudiante);
     }
 
+    @Override
+    public Map<Curso, List<Estudiante>> obtenerEstudiantesAgrupadosPorCurso() {
+        return estudianteDao.obtenerEstudiantesAgrupadosPorCurso();
+    }
 }
